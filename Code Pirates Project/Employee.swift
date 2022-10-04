@@ -12,16 +12,7 @@ class Employee {
     var birthYear: UInt!
     var monthlySalary: UInt!
     var employeeVehicle : Vehicle?
-    var rate: UInt! = 100{
-        didSet(newValue){
-            if newValue>100{
-                rate = 100
-            }
-            if newValue<10{
-                rate = 10
-            }
-        }
-    }
+    var rate: UInt! = 100
     var age: UInt {
         return UInt(Calendar.current.component(.year, from: Date()))-birthYear
     }
@@ -32,6 +23,12 @@ class Employee {
         self.rate = rate
         self.employeeVehicle = employeeVehicle
         
+        if rate>100{
+            self.rate = 100
+        }
+        if rate<10{
+            self.rate = 10
+        }
     }
     func getEmployeeDetails(){
       //blank function to override
@@ -53,11 +50,19 @@ class Manager: Employee{
         print(String(describing: self))
    }
     
+    func bonus(a: UInt, b: UInt) -> Float {
+                let GAIN_FACTOR_CLIENT = 500
+                let GIAN_FACTOR_TRAVEL = 100
+        return Float(UInt(GAIN_FACTOR_CLIENT)*a + UInt(GIAN_FACTOR_TRAVEL)*b)
+            }
+
+    
     override func getEmployeeDetails() {
         print("Name: \(name!), a manager")
         print("Age: \(age)")
         self.employeeVehicle?.getDetails()
-//        print(bonus(a: <#T##Int#>, b: <#T##Int#>))
+        print("\(name!) has an Occupation rate: \(rate!)% He/She travelled \(nbTravelDays!) days and has brought \(nbClients!) new clients.")
+        print(bonus(a: nbClients, b: nbTravelDays))
     }
 }
 
@@ -76,6 +81,8 @@ class Tester: Employee{
         print("Name: \(name!), a tester")
         print("Age: \(age)")
         self.employeeVehicle?.getDetails()
+        print("\(name!) has an Occupation rate: \(rate!)% and corrected \(nbBugs!) bugs")
+        
         
     }
     
@@ -95,5 +102,6 @@ class Programmer: Employee{
         print("Name: \(name!), a programmer")
         print("Age: \(age)")
         self.employeeVehicle?.getDetails()
+        print("\(name!) has an Occupation rate: \(rate!)% and completed \(nbProjects!) projects")
     }
 }
