@@ -109,12 +109,16 @@ class Programmer: Employee{
         print("We have a new employee: \(name!), a programmer")
     }
     
+    func bonus(a: Int)-> Float{
+                let GAIN_FACTOR_PROJECTS = 200
+        return Float(GAIN_FACTOR_PROJECTS*a)
+            }
     
     override func getEmployeeDetails() {
         print("Name: \(name!), a programmer")
         print("Age: \(age)")
         self.employeeVehicle?.getDetails()
         print("\(name!) has an Occupation rate: \(rate!)% and completed \(nbProjects!) projects")
-        print("His/Her estimated annual income is ")
+        print("His/Her estimated annual income is \(bonus(a: Int(nbProjects!)))")
     }
 }
