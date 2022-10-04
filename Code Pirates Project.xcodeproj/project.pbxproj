@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1C86989328EC3D5D0094CC1E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C86989228EC3D5D0094CC1E /* main.swift */; };
+		1CC39BB228ECC85300372FF7 /* management .swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC39BB128ECC85300372FF7 /* management .swift */; };
+		1CC39BB428ECC89600372FF7 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC39BB328ECC89600372FF7 /* Employee.swift */; };
+		1CC39BBC28ECCA0B00372FF7 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC39BBB28ECCA0B00372FF7 /* Vehicle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		1C86988F28EC3D5D0094CC1E /* Code Pirates Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Code Pirates Project"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C86989228EC3D5D0094CC1E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1CC39BB128ECC85300372FF7 /* management .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "management .swift"; path = "../../../../Downloads/management .swift"; sourceTree = "<group>"; };
+		1CC39BB328ECC89600372FF7 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		1CC39BBB28ECCA0B00372FF7 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				1C86989228EC3D5D0094CC1E /* main.swift */,
+				1CC39BB128ECC85300372FF7 /* management .swift */,
+				1CC39BB328ECC89600372FF7 /* Employee.swift */,
+				1CC39BBB28ECCA0B00372FF7 /* Vehicle.swift */,
 			);
 			path = "Code Pirates Project";
 			sourceTree = "<group>";
@@ -120,6 +129,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CC39BB228ECC85300372FF7 /* management .swift in Sources */,
+				1CC39BB428ECC89600372FF7 /* Employee.swift in Sources */,
+				1CC39BBC28ECCA0B00372FF7 /* Vehicle.swift in Sources */,
 				1C86989328EC3D5D0094CC1E /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
