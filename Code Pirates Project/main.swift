@@ -30,3 +30,24 @@ class Employee {
     }
     
 }
+
+class Manager: Employee{
+    var nbTravelDays: UInt!
+    var nbClients: UInt!
+    init(name: String!, birthYear: UInt!, nbClients: UInt!, nbTravelDays: UInt?=0, rate: UInt?=100) {
+        super.init(name: name, birthYear: birthYear, monthlySalary: 0, rate: rate)
+        self.nbTravelDays = nbTravelDays
+        self.nbClients = nbClients
+        
+        print("We have a new employee: \(name!), a manager")
+        print(String(describing: self))
+   }
+    
+    func bonus(a: Int, b: Int) -> Int {
+            let GAIN_FACTOR_CLIENT = 500
+            let GIAN_FACTOR_TRAVEL = 100
+            return GAIN_FACTOR_CLIENT*a + GIAN_FACTOR_TRAVEL*b
+        }
+
+}
+
