@@ -34,6 +34,10 @@ class Employee {
       //blank function to override
     }
     
+    func accumulatedSalary(){
+        //blank
+    }
+    
    
 }
 
@@ -47,7 +51,6 @@ class Manager: Employee{
         self.nbClients = nbClients
         
         print("We have a new employee: \(name!), a manager")
-        print(String(describing: self))
    }
     
     func bonus(a: UInt, b: UInt) -> Float {
@@ -55,6 +58,10 @@ class Manager: Employee{
                 let GIAN_FACTOR_TRAVEL = 100
         return Float(UInt(GAIN_FACTOR_CLIENT)*a + UInt(GIAN_FACTOR_TRAVEL)*b)
             }
+    
+//    override func accumulatedSalary() {
+//        <#code#>
+//    }
 
     
     override func getEmployeeDetails() {
@@ -62,7 +69,7 @@ class Manager: Employee{
         print("Age: \(age)")
         self.employeeVehicle?.getDetails()
         print("\(name!) has an Occupation rate: \(rate!)% He/She travelled \(nbTravelDays!) days and has brought \(nbClients!) new clients.")
-        print(bonus(a: nbClients, b: nbTravelDays))
+        print("His/Her estimated annual income is \(bonus(a: nbClients, b: nbTravelDays))")
     }
 }
 
@@ -73,18 +80,22 @@ class Tester: Employee{
         self.nbBugs = nbBugs
         
         print("We have a new employee: \(name!), a tester")
-        print(String(describing: self))
     }
     
+    func bonus(a: Int)-> Float{
+        let GAIN_FACTOR_ERROR = 10
+        return Float((GAIN_FACTOR_ERROR * a))
+           }
   
     override func getEmployeeDetails() {
         print("Name: \(name!), a tester")
         print("Age: \(age)")
         self.employeeVehicle?.getDetails()
         print("\(name!) has an Occupation rate: \(rate!)% and corrected \(nbBugs!) bugs")
-        
-        
+        print("His/Her estimated annual income is \(bonus(a: Int(nbBugs!)))")
     }
+    
+    
     
 }
 
@@ -98,10 +109,12 @@ class Programmer: Employee{
         print("We have a new employee: \(name!), a programmer")
     }
     
+    
     override func getEmployeeDetails() {
         print("Name: \(name!), a programmer")
         print("Age: \(age)")
         self.employeeVehicle?.getDetails()
         print("\(name!) has an Occupation rate: \(rate!)% and completed \(nbProjects!) projects")
+        print("His/Her estimated annual income is ")
     }
 }
