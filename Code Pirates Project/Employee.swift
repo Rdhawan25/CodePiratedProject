@@ -12,7 +12,7 @@ class Employee {
     var birthYear: UInt!
     var monthlySalary: UInt!
     var employeeVehicle : Vehicle?
-    var rate: UInt! = 100
+    var rate: UInt! = 100 // default value 100
     var age: UInt {
         return UInt(Calendar.current.component(.year, from: Date()))-birthYear
     }
