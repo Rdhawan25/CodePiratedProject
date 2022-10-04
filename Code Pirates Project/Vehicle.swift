@@ -19,6 +19,13 @@ class Vehicle{
         self.color = color
         self.category = category
     }
+    
+    func getDetails(){
+        print("\t - Make: \(self.make!)")
+        print("\t - Plate: \(self.plate!)")
+        print("\t - Color: \(self.color!)")
+        print("\t - Category: \(self.category!)")
+    }
 
 }
 
@@ -30,6 +37,14 @@ class Car: Vehicle{
         self.gear = gear
         self.type = type
     }
+    
+    override func getDetails() {
+        print("Employee has a Car")
+        super.getDetails()
+        print("\t - Gear Type: \(self.gear!)")
+        print("\t - Type: \(self.type!)")
+    }
+
 }
 
 class Motorcycle: Vehicle{
@@ -39,7 +54,16 @@ class Motorcycle: Vehicle{
         self.sidecar = sidecar
     }
     
+    override func getDetails() {
+        print("Employee has a Motorcycle")
+        super.getDetails()
+        if sidecar{
+            print("\t - With Sidecar")
+        }
+        else{
+            print("\t - Without SideCar")
+        }
+        
+    }
 
 }
-
-

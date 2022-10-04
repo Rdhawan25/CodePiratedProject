@@ -8,18 +8,18 @@
 
 import Foundation
 
-//Test part 1
-print("Test 1: ")
+////Test part 1
+//print("Test 1: ")
 var management = Management()
-management.hire_test1()
+//management.hire_test1()
 
-// Test part 2
+//// Test part 2
 print("Test 2: ")
 print("Employees description: ")
 management.hire_test2()
-
-// Test part 3
-print("Test 3: ")
-print("Employees description: ")
-management.hire_test3()
+//
+//// Test part 3
+//print("Test 3: ")
+//print("Employees description: ")
+//management.hire_test3()
 

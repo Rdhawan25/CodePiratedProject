@@ -33,6 +33,11 @@ class Employee {
         self.employeeVehicle = employeeVehicle
         
     }
+    func getEmployeeDetails(){
+      //blank function to override
+    }
+    
+   
 }
 
 
@@ -48,6 +53,32 @@ class Manager: Employee{
         print(String(describing: self))
    }
     
+    override func getEmployeeDetails() {
+        print("Name: \(name!), a manager")
+        print("Age: \(age)")
+        self.employeeVehicle?.getDetails()
+//        print(bonus(a: <#T##Int#>, b: <#T##Int#>))
+    }
+}
+
+class Tester: Employee{
+    var nbBugs: UInt!
+    init(name: String!, birthYear: UInt!, nbBugs: UInt!, rate: UInt?=100, employeeVehicle: Vehicle?=nil) {
+        super.init(name: name, birthYear: birthYear, monthlySalary: 0, rate: rate, employeeVehicle: employeeVehicle)
+        self.nbBugs = nbBugs
+        
+        print("We have a new employee: \(name!), a tester")
+        print(String(describing: self))
+    }
+    
+  
+    override func getEmployeeDetails() {
+        print("Name: \(name!), a tester")
+        print("Age: \(age)")
+        self.employeeVehicle?.getDetails()
+        
+    }
+    
 }
 
 
@@ -60,19 +91,9 @@ class Programmer: Employee{
         print("We have a new employee: \(name!), a programmer")
     }
     
-}
-
-
-class Tester: Employee{
-    var nbBugs: UInt!
-    init(name: String!, birthYear: UInt!, nbBugs: UInt!, rate: UInt?=100, employeeVehicle: Vehicle?=nil) {
-        super.init(name: name, birthYear: birthYear, monthlySalary: 0, rate: rate, employeeVehicle: employeeVehicle)
-        self.nbBugs = nbBugs
-        
-        print("We have a new employee: \(name!), a tester")
-        print(String(describing: self))
+    override func getEmployeeDetails() {
+        print("Name: \(name!), a programmer")
+        print("Age: \(age)")
+        self.employeeVehicle?.getDetails()
     }
-
-    
 }
-
