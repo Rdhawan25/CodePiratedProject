@@ -51,3 +51,16 @@ class Manager: Employee{
 
 }
 
+class Tester: Employee{
+    var nbBugs: UInt!
+    init(name: String!, birthYear: UInt!, nbBugs: UInt!, rate: UInt?=100) {
+        super.init(name: name, birthYear: birthYear, monthlySalary: 0, rate: rate)
+        self.nbBugs = nbBugs
+        
+        print("We have a new employee: \(name!), a tester")
+        print(String(describing: self))
+    }
+    
+}
+
+
