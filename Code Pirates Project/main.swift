@@ -63,4 +63,15 @@ class Tester: Employee{
     
 }
 
+class Programmer: Employee{
+    var nbProjects: UInt!
+    init(name: String!, birthYear: UInt!, nbProjects: UInt!, rate: UInt?=100) {
+        super.init(name: name, birthYear: birthYear, monthlySalary: 0, rate: rate)
+        self.nbProjects = nbProjects
+        
+        print("We have a new employee: \(name!), a programmer")
+    }
+}
+
+
 
