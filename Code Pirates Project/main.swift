@@ -101,6 +101,15 @@ class Car: Vehicle{
 }
 
 
+class Motorcycle: Vehicle{
+    var sidecar: Bool!
+    init(make: String!, plate: String!, color: String!, category: String!, sidecar: Bool!) {
+        super.init(make: make, plate: plate, color: color, category: category)
+        self.sidecar = sidecar
+    }
+
+}
+
 
 
 
