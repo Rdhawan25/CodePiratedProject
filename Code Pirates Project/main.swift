@@ -111,5 +111,35 @@ class Motorcycle: Vehicle{
 }
 
 
+var employees = [Employee]()
+func hire_test1() {
+    let m = Manager(name: "Serge", birthYear: 1985, nbClients: 30, nbTravelDays: 4)
+    employees.append(Manager(name: "Serge", birthYear: 1985, nbClients: 30, nbTravelDays: 4))
+    employees.append(Manager(name: "Cindy", birthYear: 1974, nbClients: 20, nbTravelDays: 6, rate: 80))
+    employees.append(Programmer(name: "Paul", birthYear: 1993, nbProjects: 3, rate: 75))
+    employees.append(Tester(name: "Pierre", birthYear: 1987, nbBugs: 124, rate: 50))
+    employees.append(Programmer(name: "Matt", birthYear: 1981, nbProjects: 5, rate: 110))
+    employees.append(Programmer(name: "Sarah", birthYear: 1986, nbProjects: 3))
+    
+    for item in employees {
+        print("-------------------------")
+        print(item)
+        print("-------------------------")
+    }
+    
+    
+}
+
+let m1 = Motorcycle(make: "Kawasaki", plate: "Custom Plate", color: "Yellow", category: "Race Motorcycle", sidecar: false)
+let m2 = Motorcycle(make: "Honda", plate: "Custom Plate", color: "Black", category: "Not for Race", sidecar: true)
+let vt1 = Car(make: "Lamborghini", plate: "Custom Plate", color: "White", category: "Family", gear: "Manual", type: "Sport")
+let vt2 = Car(make: "BMW", plate: "Custom Plate", color: "Black", category: "Family", gear: "Automatic", type: "Sedan")
+let vt3 = Car(make: "Renault Clio", plate: "Custom Plate", color: "Blue", category: "Family", gear: "Manual", type: "Hatchback")
+let vt4 = Car(make: "Mazda", plate: "Custom Plate", color: "White", category: "Family", gear: "Automatic", type: "SUV")
+
+
+
+
+
 
 
