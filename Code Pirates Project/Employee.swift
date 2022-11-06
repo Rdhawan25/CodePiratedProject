@@ -2,123 +2,71 @@
 //  Employee.swift
 //  Code Pirates Project
 //
-//  Created by Raghav Dhawan on 2022-10-05.
+//  Created by Code Pirates Project on 2022-10-05.
 //
 
 import Foundation
 
 class Employee {
-    var name: String! = nil
-    var birthYear: UInt!
-    var monthlySalary: UInt!
+    var name: String
+    var birthYear: Int
+    var monthlySalary: Int
     var employeeVehicle : Vehicle?
-    var rate: UInt! = 100 // default value 100
-    var age: UInt {
-        return UInt(Calendar.current.component(.year, from: Date()))-birthYear
+    var _rate: Int? = 100 // default value 100
+    var rate: Int?{
+        get{
+            return _rate
+        }
+        set(newVal){
+            if newVal! < 10{
+                _rate = 10
+            }else if newVal! > 100{
+                _rate = 100
+            }else{
+                _rate = newVal!
+            }
+        }
     }
-    init(name: String!, birthYear: UInt!, monthlySalary: UInt!, rate: UInt!, employeeVehicle: Vehicle?) {
+    var age: Int {
+        return Calendar.current.component(.year, from: Date())-birthYear
+    }
+    var income : Float = 0.0
+    
+    //Contract Info
+    var numberOfChildren: Int  = 0
+    var contract : Contract?
+    
+    init(name: String, birthYear: Int, monthlySalary: Int, rate: Int, employeeVehicle: Vehicle?) {
+        
         self.name = name
         self.birthYear = birthYear
         self.monthlySalary = monthlySalary
         self.rate = rate
         self.employeeVehicle = employeeVehicle
-        
-        if rate>100{
-            self.rate = 100
-        }
-        if rate<10{
-            self.rate = 10
-        }
-    }
-    func getEmployeeDetails(){
-      //blank function to override
+       // self.employeeContract = employeeContract
+      
     }
     
+    func annualIncome()-> Float{
+        let yearlyIncome = 12 * (monthlySalary * rate!)
+        return Float(yearlyIncome)
+    }
+     
     func accumulatedSalary(){
         //blank
     }
-    
    
-}
-
-
-class Manager: Employee{
-    var nbTravelDays: UInt!
-    var nbClients: UInt!
-    init(name: String!, birthYear: UInt!, nbClients: UInt!, nbTravelDays: UInt?=0, rate: UInt?=100, employeeVehicle: Vehicle?=nil) {
-        super.init(name: name, birthYear: birthYear, monthlySalary: 0, rate: rate, employeeVehicle: employeeVehicle)
-        self.nbTravelDays = nbTravelDays
-        self.nbClients = nbClients
-        
-        print("We have a new employee: \(name!), a manager")
-   }
-    
-    func bonus(a: UInt, b: UInt) -> Float {
-                let GAIN_FACTOR_CLIENT = 500
-                let GIAN_FACTOR_TRAVEL = 100
-        return Float(UInt(GAIN_FACTOR_CLIENT)*a + UInt(GIAN_FACTOR_TRAVEL)*b)
-            }
-    
-//    override func accumulatedSalary() {
-//        <#code#>
-//    }
-
-    
-    override func getEmployeeDetails() {
-        print("Name: \(name!), a manager")
-        print("Age: \(age)")
-        self.employeeVehicle?.getDetails()
-        print("\(name!) has an Occupation rate: \(rate!)% He/She travelled \(nbTravelDays!) days and has brought \(nbClients!) new clients.")
-        print("His/Her estimated annual income is \(bonus(a: nbClients, b: nbTravelDays))")
-    }
-}
-
-class Tester: Employee{
-    var nbBugs: UInt!
-    init(name: String!, birthYear: UInt!, nbBugs: UInt!, rate: UInt?=100, employeeVehicle: Vehicle?=nil) {
-        super.init(name: name, birthYear: birthYear, monthlySalary: 0, rate: rate, employeeVehicle: employeeVehicle)
-        self.nbBugs = nbBugs
-        
-        print("We have a new employee: \(name!), a tester")
+    func  signContract(contract: Contract){
+        self.contract = contract
     }
     
-    func bonus(a: Int)-> Float{
-        let GAIN_FACTOR_ERROR = 10
-        return Float((GAIN_FACTOR_ERROR * a))
-           }
-  
-    override func getEmployeeDetails() {
-        print("Name: \(name!), a tester")
-        print("Age: \(age)")
-        self.employeeVehicle?.getDetails()
-        print("\(name!) has an Occupation rate: \(rate!)% and corrected \(nbBugs!) bugs")
-        print("His/Her estimated annual income is \(bonus(a: Int(nbBugs!)))")
-    }
-    
-    
-    
-}
-
-
-class Programmer: Employee{
-    var nbProjects: UInt!
-    init(name: String!, birthYear: UInt!, nbProjects: UInt!, rate: UInt?=100, employeeVehicle: Vehicle?=nil) {
-        super.init(name: name, birthYear: birthYear, monthlySalary: 0, rate: rate, employeeVehicle: employeeVehicle)
-        self.nbProjects = nbProjects
-        
-        print("We have a new employee: \(name!), a programmer")
-    }
-    
-    func bonus(a: Int)-> Float{
-                let GAIN_FACTOR_PROJECTS = 200
-        return Float(GAIN_FACTOR_PROJECTS*a)
-            }
-    
-    override func getEmployeeDetails() {
-        print("Name: \(name!), a programmer")
-        print("Age: \(age)")
-        self.employeeVehicle?.getDetails()
-        print("\(name!) has an Occupation rate: \(rate!)% and completed \(nbProjects!) projects")
-        print("His/Her estimated annual income is \(bonus(a: Int(nbProjects!)))")
+    func contractInfo() -> String {
+        if let c = contract as? Permanent {
+            return ("\(name) is a employee. he is married and he/she has \(c.nbChildren) children.He/She has worked for  \(c.accumulatedDays) days and upon contract his/her monthly salary is \(c.monthlySalary)")
+        }
+        if let c = contract as? Temporary {
+            return ("\(name) is a employee. he is a temporary employee with \(c.hourlySalary) hourly salary and he has worked for \(c.accumulatedHours) hours")
+        }
+        return ""
     }
 }
